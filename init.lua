@@ -1,6 +1,7 @@
 hyper = require('hyper')
 appSwitcher = require('app-switcher')
 winwin = hs.loadSpoon('WinWin')
+-- windowscreenlandr = hs.loadSpoon('WindowScreenLeftAndRight')
 logger = hs.logger.new('init.lua','info')
 
 -- shortcut for sleep
@@ -10,7 +11,9 @@ end)
 
 function windowResizeFrames(dir, screen)
   local cres = screen:fullFrame()
-  local topbar_diff = cres.h - screen:frame().h
+  -- for older OS' where the topbar is not included in the frame:
+  -- local topbar_diff = cres.h - screen:frame().h
+  local topbar_diff = 0
   if dir == 'left' then
     return {x=cres.x, y=cres.y + topbar_diff, w=cres.w/2, h=cres.h - topbar_diff}
   elseif dir == 'right' then
@@ -71,16 +74,26 @@ end)
 -- Shortcuts for fast app switching
 local switcherMap = {
   a = "Whatsapp",
-  b = "Adobe Acrobat",
-  c = "Google Chrome",
-  d = "Preview",
+  b = "Bitwarden",
+  c = "Linear",
+  d = "Superhuman",
+  e = "Figma",
   f = "Finder",
-  g = "Mail",
+  g = "Arc",
+  h = "Preview",
   i = "iTerm",
+  j = "Adobe Acrobat",
+  -- k = "Chrome",
+  l = "Claude",
   m = "Spotify",
+  n = "Notion",
+  o = "Obsidian",
   p = "Microsoft Powerpoint",
+  q = "CameraController",
+  r = "Microsoft To Do",
   s = "Slack",
-  t = "Microsoft To Do",
+  t = "Microsoft Teams",
+  -- u = "Cron",
   v = "Code",
   w = "Microsoft Word",
   x = "Microsoft Excel",
@@ -91,7 +104,8 @@ local switcherMap = {
 -- if the app has to be launched by a different name than the one the windows are found by, this list
 -- will take precedence when opening the app.
 local switcherLaunchMap = {
-  v = "Visual Studio Code"
+  v = "Visual Studio Code",
+  y = "PyCharm CE",
 }
 
 appSwitcher.init(switcherMap, switcherLaunchMap, hyper)
