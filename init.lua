@@ -75,7 +75,7 @@ end)
 local switcherMap = {
   a = "Whatsapp",
   b = "Bitwarden",
-  c = "Linear",
+  c = "Claude",
   d = "Superhuman",
   e = "Figma",
   f = "Finder",
@@ -83,8 +83,8 @@ local switcherMap = {
   h = "Preview",
   i = "iTerm",
   j = "Adobe Acrobat",
-  -- k = "Chrome",
-  l = "Claude",
+  -- k = "Linear",
+  l = "Linear",
   m = "Spotify",
   n = "Notion",
   o = "Obsidian",
@@ -93,19 +93,19 @@ local switcherMap = {
   r = "Microsoft To Do",
   s = "Slack",
   t = "Microsoft Teams",
-  -- u = "Cron",
-  v = "Code",
+  -- u = "Cron", "Chrome", "PyCharm"
+  v = "ChatGPT",
   w = "Microsoft Word",
   x = "Microsoft Excel",
-  y = "PyCharm",
+  y = "Code",
   z = "zoom.us",
 }
 
 -- if the app has to be launched by a different name than the one the windows are found by, this list
 -- will take precedence when opening the app.
 local switcherLaunchMap = {
-  v = "Visual Studio Code",
-  y = "PyCharm CE",
+  y = "Visual Studio Code",
+--  u = "PyCharm CE",
 }
 
 appSwitcher.init(switcherMap, switcherLaunchMap, hyper)
